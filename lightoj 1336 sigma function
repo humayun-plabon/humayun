@@ -1,0 +1,54 @@
+---Test instructions: To define a function, F (n) represents the sum of all the approximations of N, and gives the integer split formula and the calculation 
+method of f (n), and for a given n let us ask how many 1-n between the number of F (x) to be an even number of cases, the output.
+
+
+---Analysis: to consider the case of F (x) is odd, given the formula given to us in the topic, if f (x) is an odd number, then any of the polynomial inside must be 
+odd, you can know P = 2 o'clock, p^e-1 is definitely odd, if p! = 2, when and only if E is an even number, this is an odd number, which proves as follows:
+
+
+The original variant is [p^ (e+1)-P + (p-1)]/(p-1) = p* (p^e-1)/(p-1) + 1;
+
+
+So p/(p-1) = 1, p^e must be odd (because P is prime, prime numbers are definitely odd), so p^e-1 is an even number, so the underscore is definitely odd, proving to
+be true.
+
+
+Then the formula in the title can be written in the following form:
+
+
+2^k0 * 3^ (2*K1) * 5^ (2*K2) * ... * pn^ (2*KN); the underscore can be expressed as num ^ 2;
+
+
+And k0>=0, so the solution satisfying the condition is num^2 and 2 * num^2, because the higher power of satisfying 2 must also be a multiple of 2, and cannot be 
+computed repeatedly. The code is as follows:
+
+
+--"NOTE: This topic can not be directly recycled, although the topic given a long time, but the direct violence will still be super, here direct calculation, 
+sqrt can not be forced to convert to ll, but this problem l also enough;
+
+
+--"sentiment: The problem of number theory is the code is very short, but the amount of thinking and proof of the kind of super ..."
+
+
+#include<cstring>
+#include<cstdio>
+#include<cmath>
+#include<iostream>
+using namespace std;
+#define L long
+int main()
+{
+    int t,ca = 0;
+    long long n;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%lld",&n);
+        L ans = 0;
+        double tmp = n;
+        ans = L(sqrt(tmp)) + L(sqrt(tmp/2));
+        printf("Case %d: %ld\n",++ca,n-ans);
+    }
+    return 0;
+}
+
